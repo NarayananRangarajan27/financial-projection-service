@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "ac67f75d-87cd-46e3-9a53-8ca2d6ef3bd9",
+		"name": "Financial Projection Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24642739"
+	},
+	"item": [
+		{
+			"name": "Get projections",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/naray/Downloads/Financial Projections (Assignment).xlsx"
+						},
+						{
+							"key": "productSalesGrowth",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "serviceSalesGrowth",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "cogsGrowth",
+							"value": "1.5",
+							"type": "text"
+						},
+						{
+							"key": "marketingGrowth",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "staffSalariesGrowth",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "futureMonths",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/projections/analyze",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"projections",
+						"analyze"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/financial-projections \\\r\n  -F \"file=@path/to/your/excel-file.xlsx\" \\\r\n  -F \"productSalesGrowth=2\" \\\r\n  -F \"serviceSalesGrowth=2\" \\\r\n  -F \"cogsGrowth=1.5\" \\\r\n  -F \"marketingGrowth=0\" \\\r\n  -F \"staffSalariesGrowth=1\" \\\r\n  -F \"futureMonths=6\""
+			},
+			"response": []
+		}
+	]
+}
