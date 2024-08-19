@@ -19,13 +19,13 @@ public class FinancialProjectionController {
     private FinancialProjectionService financialProjectionService;
 
     @PostMapping("/projections/analyze")
-    public List<Map<String, Object>> uploadExcel(@RequestParam("file") MultipartFile file,
-                                                 @RequestParam("productSalesGrowth") double productSalesGrowth,
-                                                 @RequestParam("serviceSalesGrowth") double serviceSalesGrowth,
-                                                 @RequestParam("cogsGrowth") double cogsGrowth,
-                                                 @RequestParam("marketingGrowth") double marketingGrowth,
-                                                 @RequestParam("staffSalariesGrowth") double staffSalariesGrowth,
-                                                 @RequestParam("futureMonths") int futureMonths) throws IOException {
+    public List<Map<String, Object>> getProjections(@RequestParam("file") MultipartFile file,
+                                                    @RequestParam("productSalesGrowth") double productSalesGrowth,
+                                                    @RequestParam("serviceSalesGrowth") double serviceSalesGrowth,
+                                                    @RequestParam("cogsGrowth") double cogsGrowth,
+                                                    @RequestParam("marketingGrowth") double marketingGrowth,
+                                                    @RequestParam("staffSalariesGrowth") double staffSalariesGrowth,
+                                                    @RequestParam("futureMonths") int futureMonths) throws IOException {
         Map<String, Double> growthRates = parseGrowthRates(productSalesGrowth, serviceSalesGrowth, cogsGrowth, marketingGrowth, staffSalariesGrowth);
         return financialProjectionService.calculateFinancialProjections(file, growthRates, futureMonths);
     }
